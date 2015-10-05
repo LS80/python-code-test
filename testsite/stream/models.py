@@ -7,6 +7,11 @@ from django.db.models import signals
 from items.models import PhotoItem, TweetItem
 
 
+class NotDeletedStreamManager(models.Manager):
+    def get_queryset(self):
+        return super(NotDeletedStreamManager, self).get_queryset().filter(deleted=False)
+
+
 class Stream(models.Model):
     user = models.ForeignKey(User)
     created_at = models.DateTimeField()
@@ -15,8 +20,18 @@ class Stream(models.Model):
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey()
 
+    deleted = models.BooleanField(default=False)
+
     class Meta:
         ordering = ['-created_at']
+
+    objects = models.Manager()
+    active = NotDeletedStreamManager()
+
+    def __unicode__(self):
+        return '{} {}: {}'.format(self.__class__.__name__,
+                                  self.content_type.model,
+                                  self.created_at)
 
 
 def update_stream(sender, instance, created, **kwargs):

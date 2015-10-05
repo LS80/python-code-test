@@ -14,5 +14,10 @@ def migrate():
 def make_migrations():
     run_manage('makemigrations')
 
+def load_sample_data():
+    run_manage('flush')
+    run_manage('loaddata auth_data')
+    run_manage('loaddata sample_data')
+
 def requirements():
     local('/home/vagrant/.virtualenvs/le-code-test/bin/pip install -r requirements.txt ')

@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+from models import Stream
+
+def stream(request):
+    return render(request, 'stream.html',
+                  {'stream': Stream.objects.all()})

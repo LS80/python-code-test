@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+   <head>
+      <title>Stream Page</title>
+      <meta charset="utf-8" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+   </head>
+   <body>    
+      <div class="container">
+         {% for item in stream %}
+         <div class="well">
+            <div class="media">
+               <div class="media-body">
+               {% if item.content_type.model == 'photoitem' %}
+                  <img class="media-object" src="{{ item.content_object.image.url }}">
+               {% elif item.content_type.model == 'tweetitem' %}
+                  <p>{{ item.content_object.text }}</p>
+               {% endif %}
+                  <ul class="list-inline list-unstyled">
+                     <li><span><i class="glyphicon glyphicon-calendar"></i> {{ item.created_at }}</span></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         {% endfor %}
+      </div>
+   </body>
+</html>

@@ -1,0 +1,47 @@
+[
+{
+  "fields": {
+    "created_at": "2015-10-05T12:21:06Z",
+    "user": 1,
+    "image": "/media/python-logo-master-v3-TM-flattened.png"
+  },
+  "model": "items.photoitem",
+  "pk": 1
+},
+{
+  "fields": {
+    "created_at": "2015-10-03T13:06:14Z",
+    "user": 1,
+    "image": "/media/python-logo-master-v3-TM-flattened.png"
+  },
+  "model": "items.photoitem",
+  "pk": 2
+},
+{
+  "fields": {
+    "text": "Had corn flakes for breakfast",
+    "created_at": "2015-10-02T08:10:10Z",
+    "user": 1
+  },
+  "model": "items.tweetitem",
+  "pk": 1
+},
+{
+  "fields": {
+    "text": "Had salmon for lunch today",
+    "created_at": "2015-10-04T12:54:43Z",
+    "user": 1
+  },
+  "model": "items.tweetitem",
+  "pk": 2
+},
+{
+  "fields": {
+    "text": "Had a roast beef dinner",
+    "created_at": "2015-10-04T18:41:47Z",
+    "user": 1
+  },
+  "model": "items.tweetitem",
+  "pk": 3
+}
+]
